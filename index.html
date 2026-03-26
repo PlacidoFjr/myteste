@@ -303,6 +303,22 @@ h1 {
 }
 .back-btn:hover { transform: translateY(-2px); background: rgba(255,255,255,0.24); }
 
+.wa-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 900;
+  font-size: 0.98rem;
+  padding: 12px 22px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #06220f;
+  letter-spacing: 0.3px;
+  transition: transform 0.15s, filter 0.15s;
+  box-shadow: 0 10px 26px rgba(34,197,94,0.35);
+}
+.wa-btn:hover { transform: translateY(-2px) scale(1.02); filter: brightness(1.02); }
+
 @media (max-width: 640px) {
   .card {
     border-radius: 28px;
@@ -323,6 +339,7 @@ h1 {
     padding: 14px 18px;
   }
   .back-btn { width: min(92vw, 360px); }
+  .wa-btn { width: min(92vw, 360px); }
 }
  
 /* confetti */
@@ -347,7 +364,7 @@ h1 {
 <div class="card" id="mainCard">
   <div class="icon-ring">💝</div>
   <h1>Quer sair<br>comigo?</h1>
-  <p class="tagline">Escolha com sabedoria… os dois já sabemos a resposta 👀</p>
+  <p class="tagline">Escolha com sabedoria… nos dois já sabemos a resposta</p>
   <div class="btn-row">
     <button class="btn-sim" id="btnSim">💖 SIM</button>
     <button class="btn-nao" id="btnNao">🙅 NÃO</button>
@@ -375,6 +392,7 @@ h1 {
     </div>
     <button class="music-btn" onclick="openMusic()">🎵 Tocar a música especial!</button>
     <button class="back-btn" onclick="backToStart()">↩ Voltar ao início</button>
+    <button class="wa-btn" onclick="openWhatsApp()">📲 Ir para o WhatsApp</button>
   </div>
 </div>
  
@@ -525,6 +543,13 @@ function openMusic() {
 
 function backToStart() {
   window.location.reload();
+}
+
+function openWhatsApp() {
+  const phone = '71999195766';
+  const msg = 'Aceitei o seu convite irrecusavel';
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
 }
  
 /* victory sequence */
